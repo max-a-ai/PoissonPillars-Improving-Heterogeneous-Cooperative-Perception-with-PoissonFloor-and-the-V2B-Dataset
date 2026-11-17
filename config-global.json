@@ -1,0 +1,242 @@
+{
+  "_comment": "Dataset registry. v2b/scripts/dm_link.py links each dataset under resources/data/<name> from <nas_root>/<nas_path>; set nas_root to the folder that holds your derived datasets.",
+  "project": "v2b",
+  "nas_root": "/path/to/data",
+  "machines": {
+    "default": {
+      "role": "workstation",
+      "nas_root": "/path/to/data"
+    }
+  },
+  "workspaces": {
+    "outputs": "outputs",
+    "resources": "resources"
+  },
+  "datasets": {
+    "nuscenes-opv2v": {
+      "nas_path": "derived/nuscenes-opv2v",
+      "modality": "real",
+      "agents": [
+        "v_L32"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-rsu-opv2v": {
+      "nas_path": "derived/tumtraf-rsu-opv2v",
+      "modality": "real",
+      "agents": [
+        "i_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-rsu-opv2v-rebase-poisson": {
+      "nas_path": "derived/tumtraf-rsu-opv2v-rebase-poisson",
+      "modality": "real",
+      "agents": [
+        "i_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-seq-opv2v": {
+      "nas_path": "derived/tumtraf-seq-opv2v",
+      "modality": "real",
+      "agents": [
+        "v_L32",
+        "i_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-seq-opv2v-rebase-poisson": {
+      "nas_path": "derived/tumtraf-seq-opv2v-rebase-poisson",
+      "modality": "real",
+      "agents": [
+        "v_L32",
+        "i_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-seq-opv2v-rebase-poisson-merged": {
+      "nas_path": "derived/tumtraf-seq-opv2v-rebase-poisson-merged",
+      "modality": "real",
+      "agents": [
+        "v_L32",
+        "i_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-veh-opv2v": {
+      "nas_path": "derived/tumtraf-veh-opv2v",
+      "modality": "real",
+      "agents": [
+        "v_L32"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "tumtraf-veh-opv2v-rebase-poisson": {
+      "nas_path": "derived/tumtraf-veh-opv2v-rebase-poisson",
+      "modality": "real",
+      "agents": [
+        "v_L32"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "v2b-coop-v2-hand-opv2v": {
+      "modality": "real",
+      "agents": [
+        "v_car",
+        "v_bike"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate",
+        "test"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml",
+      "nas_path": "derived/v2b-coop-v2-hand-opv2v"
+    },
+    "v2b-coop-v2-hand-opv2v-rebase-poisson": {
+      "modality": "real",
+      "agents": [
+        "v_car",
+        "v_bike"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate",
+        "test"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml",
+      "nas_path": "derived/v2b-coop-v2-hand-opv2v-rebase-poisson"
+    },
+    "v2b-coop-v2-hand-opv2v-rebase-poisson-merged": {
+      "modality": "real",
+      "agents": [
+        "v_car",
+        "v_bike"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate",
+        "test"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml",
+      "nas_path": "derived/v2b-coop-v2-hand-opv2v-rebase-poisson-merged"
+    },
+    "v2xreal-v2v-bike-opv2v": {
+      "nas_path": "derived/v2xreal-v2v-bike-opv2v",
+      "modality": "real",
+      "agents": [
+        "v_L128",
+        "v_L128"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate",
+        "test"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "v2xreal-v2v-bike-opv2v-rebase-poisson": {
+      "nas_path": "derived/v2xreal-v2v-bike-opv2v-rebase-poisson",
+      "modality": "real",
+      "agents": [
+        "v_L128",
+        "v_L128"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate",
+        "test"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "waymo-opv2v": {
+      "nas_path": "derived/waymo-opv2v",
+      "modality": "real",
+      "agents": [
+        "v_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    },
+    "waymo-opv2v-rebase-poisson": {
+      "nas_path": "derived/waymo-opv2v-rebase-poisson",
+      "modality": "real",
+      "agents": [
+        "v_L64"
+      ],
+      "label_format": "opv2v_yaml",
+      "splits": [
+        "train",
+        "validate"
+      ],
+      "pcd_glob": "{split}/*/*/*.pcd",
+      "label_glob": "{split}/*/*/*.yaml"
+    }
+  },
+  "checkpoints": {},
+  "methods": {}
+}

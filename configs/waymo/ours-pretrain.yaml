@@ -1,0 +1,46 @@
+# PoissonPillars: floor-anchored masked pretraining on Waymo
+name: waymo-ours-pretrain
+fork: heal
+pillar_pooling: attn
+pretrain:
+  mask_ratio: 0.7
+  bins: 12
+base: opv2v/Single/m1_pointpillar_pretrain.yaml
+anchors:
+  car:
+  - 4.6
+  - 1.95
+  - 1.7
+  bicycle:
+  - 1.9
+  - 0.7
+  - 1.5
+  pedestrian:
+  - 0.75
+  - 0.7
+  - 1.75
+sources:
+  train:
+  - dataset: waymo-opv2v-rebase-poisson
+    split: train
+  val:
+  - dataset: waymo-opv2v-rebase-poisson
+    split: validate
+grid:
+  range:
+  - -51.2
+  - -51.2
+  - -3.0
+  - 51.2
+  - 51.2
+  - 3.0
+  voxel:
+  - 0.4
+  - 0.4
+  - 6.0
+train:
+  epochs: 15
+  batch_size: 8
+  eval_freq: 1
+overrides:
+  postprocess.max_num: 300

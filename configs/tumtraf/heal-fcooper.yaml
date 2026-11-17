@@ -1,0 +1,52 @@
+# Tab. 4, TUMTraf V2X: HEAL + F-Cooper, fused row
+name: tumtraf-heal-fcooper
+fork: heal
+fused_augment: true
+fusion_trunk: single
+init_from: outputs/tumtraf-heal-vehicle
+anchors:
+  car:
+  - 3.9
+  - 1.6
+  - 1.56
+  bicycle:
+  - 1.9
+  - 0.7
+  - 1.5
+  pedestrian:
+  - 0.8
+  - 0.6
+  - 1.73
+class_thresholds:
+  pedestrian:
+  - 0.5
+  - 0.35
+base: opv2v/LiDAROnly/lidar_fcooper.yaml
+sources:
+  train:
+  - dataset: tumtraf-seq-opv2v
+    split: train
+  test:
+  - dataset: tumtraf-seq-opv2v
+    split: validate
+grid:
+  range:
+  - -102.4
+  - -40.0
+  - -5.0
+  - 102.4
+  - 40.0
+  - 3.0
+  voxel:
+  - 0.4
+  - 0.4
+  - 8.0
+train:
+  epochs: 20
+  holdout:
+  - tumtraf_train_09
+  batch_size: 4
+  eval_freq: 1
+overrides:
+  postprocess.max_num: 300
+  postprocess.nms_thresh: 0.15

@@ -1,0 +1,53 @@
+# Tab. 3: PoissonPillars, no fusion
+name: v2xreal-ours-single
+fork: heal
+pillar_pooling: attn
+init_from: outputs/v2xreal-ours-pretrain
+anchors:
+  car:
+  - 3.9
+  - 1.6
+  - 1.56
+  bicycle:
+  - 1.9
+  - 0.7
+  - 1.5
+  pedestrian:
+  - 0.8
+  - 0.6
+  - 1.73
+class_thresholds:
+  pedestrian:
+  - 0.5
+  - 0.35
+base: opv2v/Single/m1_pointpillar_pretrain.yaml
+sources:
+  train:
+  - dataset: v2xreal-v2v-bike-opv2v-rebase-poisson
+    split: train
+  val:
+  - dataset: v2xreal-v2v-bike-opv2v-rebase-poisson
+    split: validate
+  test:
+  - dataset: v2xreal-v2v-bike-opv2v-rebase-poisson
+    split: test
+grid:
+  range:
+  - -102.4
+  - -40.0
+  - -3.0
+  - 102.4
+  - 40.0
+  - 3.0
+  voxel:
+  - 0.4
+  - 0.4
+  - 6.0
+train:
+  epochs: 20
+  batch_size: 8
+  eval_freq: 1
+  keep_epochs: true
+overrides:
+  postprocess.max_num: 300
+  postprocess.nms_thresh: 0.15

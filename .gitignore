@@ -30,3 +30,6 @@ wandb/
 
 # OS
 .DS_Store
+
+# HEAL is cloned here, not committed
+/third_party/HEAL/

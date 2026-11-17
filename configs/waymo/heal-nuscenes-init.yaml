@@ -1,0 +1,42 @@
+# HEAL on nuScenes, warm start of the Waymo HEAL model
+name: waymo-heal-nuscenes-init
+fork: heal
+base: opv2v/Single/m1_pointpillar_pretrain.yaml
+anchors:
+  car:
+  - 4.6
+  - 1.95
+  - 1.7
+  bicycle:
+  - 1.9
+  - 0.7
+  - 1.5
+  pedestrian:
+  - 0.75
+  - 0.7
+  - 1.75
+sources:
+  train:
+  - dataset: nuscenes-opv2v
+    split: train
+  val:
+  - dataset: nuscenes-opv2v
+    split: validate
+grid:
+  range:
+  - -51.2
+  - -51.2
+  - -3.0
+  - 51.2
+  - 51.2
+  - 3.0
+  voxel:
+  - 0.4
+  - 0.4
+  - 6.0
+train:
+  epochs: 20
+  batch_size: 8
+  eval_freq: 1
+overrides:
+  postprocess.max_num: 200

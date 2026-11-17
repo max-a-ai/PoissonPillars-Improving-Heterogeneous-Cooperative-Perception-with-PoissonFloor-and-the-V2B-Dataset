@@ -1,0 +1,46 @@
+# PoissonPillars: floor-anchored masked pretraining on V2X-Real
+name: v2xreal-ours-pretrain
+fork: heal
+pillar_pooling: attn
+pretrain:
+  mask_ratio: 0.7
+  bins: 12
+base: opv2v/Single/m1_pointpillar_pretrain.yaml
+anchors:
+  car:
+  - 3.9
+  - 1.6
+  - 1.56
+  bicycle:
+  - 1.9
+  - 0.7
+  - 1.5
+  pedestrian:
+  - 0.8
+  - 0.6
+  - 1.73
+sources:
+  train:
+  - dataset: v2xreal-v2v-bike-opv2v-rebase-poisson
+    split: train
+  val:
+  - dataset: v2xreal-v2v-bike-opv2v-rebase-poisson
+    split: validate
+grid:
+  range:
+  - -102.4
+  - -40.0
+  - -3.0
+  - 102.4
+  - 40.0
+  - 3.0
+  voxel:
+  - 0.4
+  - 0.4
+  - 6.0
+train:
+  epochs: 15
+  batch_size: 8
+  eval_freq: 1
+overrides:
+  postprocess.max_num: 300
